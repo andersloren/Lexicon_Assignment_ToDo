@@ -1,4 +1,4 @@
-package lexicon;
+package lexicon.model;
 
 public class Person {
 
@@ -11,15 +11,15 @@ public class Person {
     private String lastName;
     private String email;
 
-    // **************
+    // **************d
     // Constructor(s)
     // **************
 
     public Person(int id, String firstName, String lastName, String email) {
         this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
+        setEmail(firstName);
+        setEmail(lastName);
+        setEmail(email);
     }
 
 
@@ -31,6 +31,25 @@ public class Person {
         return "id: " + getId() +
                 ", name: " + getFirstName() + " " + getLastName() +
                 ", email: " + getEmail();
+    }
+
+    // ******************************************
+    // Overridden methods from 'java.lang.Object'
+    // ******************************************
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 
 
@@ -47,6 +66,7 @@ public class Person {
     }
 
     public void setFirstName(String firstName) {
+        if (firstName == null) throw new IllegalArgumentException("First name cannot be null");
         this.firstName = firstName;
     }
 
@@ -55,6 +75,7 @@ public class Person {
     }
 
     public void setLastName(String lastName) {
+        if (lastName == null) throw new IllegalArgumentException("Last name cannot be null");
         this.lastName = lastName;
     }
 
@@ -63,6 +84,7 @@ public class Person {
     }
 
     public void setEmail(String email) {
+        if (email == null) throw new IllegalArgumentException("Email cannot be null");
         this.email = email;
     }
 

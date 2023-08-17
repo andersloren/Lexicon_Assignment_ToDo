@@ -1,6 +1,10 @@
-package lexicon;
+package lexicon.model;
+
+import lexicon.model.Person;
+import lexicon.model.TodoItem;
 
 public class TodoItemTask {
+
     // ******
     // Fields
     // ******
@@ -26,10 +30,30 @@ public class TodoItemTask {
     // *******
     // Methods
     // *******
+
     public String getSummary() {
         return "id: " + getId() +
-                ", title: " + isAssigned()+
+                ", is assigned: " + isAssigned()+
                 ", todo item: " + getTodoItem().getSummary();
+    }
+
+    // ******************************************
+    // Overridden methods from 'java.lang.Object'
+    // ******************************************
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 
     // *****************
@@ -46,7 +70,7 @@ public class TodoItemTask {
     }
 
     public void setAssigned(boolean assigned) {
-        this.assigned = assigned;
+        this.assigned = assigned; // is automatically false if null
     }
 
 

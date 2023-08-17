@@ -1,16 +1,16 @@
-package lexicon;
+package lexicon.model;
+
+import lexicon.model.Person;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.chrono.ChronoLocalDate;
-import java.time.chrono.ChronoLocalDateTime;
-import java.util.Locale;
 
 public class TodoItem {
 
     // ******
     // Fields
     // ******
+
     private int id;
     private String title;
     private String taskDescription;
@@ -25,9 +25,9 @@ public class TodoItem {
 
     public TodoItem(int id, String title, String taskDescription, LocalDate deadLine, boolean done, Person creator) {
         this.id = id;
-        this.title = title;
+        setTitle(title);
         this.taskDescription = taskDescription;
-        this.deadLine = deadLine;
+        setDeadLine(deadLine);
         this.done = done;
         this.creator = creator;
     }
@@ -35,6 +35,7 @@ public class TodoItem {
     // *******
     // Methods
     // *******
+
     public String getSummary() {
         return "id: " + getId() +
                 ", title: " + getTitle() +
@@ -43,6 +44,25 @@ public class TodoItem {
                 ", is over due? " + isOverdue() +
                 ", done: " + isDone() +
                 ", creator: " + getCreator().getSummary();
+    }
+
+    // ******************************************
+    // Overridden methods from 'java.lang.Object'
+    // ******************************************
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 
     public boolean isOverdue() {
@@ -62,6 +82,7 @@ public class TodoItem {
     }
 
     public void setTitle(String title) {
+        if (title == null || title.isEmpty()) throw new IllegalArgumentException("Title name cannot be null");
         this.title = title;
     }
 
@@ -78,6 +99,7 @@ public class TodoItem {
     }
 
     public void setDeadLine(LocalDate deadLine) {
+        if (deadLine == null) throw new IllegalArgumentException("Deadline name cannot be null");
         this.deadLine = deadLine;
     }
 
