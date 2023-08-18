@@ -13,7 +13,7 @@ class TodoItemTest {
 
     @Test
     @DisplayName("The title of the TodoItemTest object should not be equal to null")
-    public void todoitemThrowsIfTitleIsNull() {
+    public void toDoItemThrowsIfTitleIsNull() {
         Person person = new Person(1, "Anders", "Loren", "anders.loren@gmail.com");
 
         assertThrows(IllegalArgumentException.class,
@@ -21,7 +21,7 @@ class TodoItemTest {
     }
     @Test
     @DisplayName("The title of the TodoItem object should not be empty")
-    public void todoitemThrowsIfTitleIsEmpty() {
+    public void toDoItemThrowsIfTitleIsEmpty() {
         Person person = new Person(1, "Anders", "Loren", "anders.loren@gmail.com");
 
         assertThrows(IllegalArgumentException.class,
@@ -30,7 +30,7 @@ class TodoItemTest {
 
     @Test
     @DisplayName("The deadline of the TodoItem object should not be null")
-    public void todoitemThrowsIfDeadlineIsNull() {
+    public void ToDoItemThrowsIfDeadlineIsNull() {
         Person person = new Person(1, "Anders", "Loren", "anders.loren@gmail.com");
 
         assertThrows(IllegalArgumentException.class,
