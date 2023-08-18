@@ -17,8 +17,8 @@ public class Person {
 
     public Person(int id, String firstName, String lastName, String email) {
         this.id = id;
-        setEmail(firstName);
-        setEmail(lastName);
+        setFirstName(firstName);
+        setLastName(lastName);
         setEmail(email);
     }
 
@@ -87,6 +87,4 @@ public class Person {
         if (email == null) throw new IllegalArgumentException("Email cannot be null");
         this.email = email;
     }
-
-
 }

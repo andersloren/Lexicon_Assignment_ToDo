@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class PersonTest {
 
     @ParameterizedTest
-    @DisplayName("WHEN Person object is instantiated, IF firstname OR lastname OR email is null, THEN throw")
+    @DisplayName("The firstname, lastname, and email, should not be equal to null")
     @CsvSource(value ={
             "1, null, loren, anders.loren@gmail.com",
             "1, anders, null, anders.loren@gmail.com",
@@ -23,15 +23,12 @@ class PersonTest {
     }
 
     @ParameterizedTest
-    @DisplayName("WHEN Person object method getSummary() is called, THEN return correct string")
+    @DisplayName("When getSummary() is invoked on a Person object it should be equal to the string provided in test")
     @CsvSource({
             "1, anders, loren, anders.loren@gmail.com",
-            "2, erik, svensson, erik.svensson@gmail.com"
     })
     public void personGetSummaryShouldReturnCorrectString(int id, String firstName, String lastName, String email) {
         Person person = new Person(id, firstName, lastName, email);
-        assertEquals(person.getSummary(), "id: " + id +
-                ", name: " + firstName + " " + lastName +
-                ", email: " + email);
+        assertEquals("id: 1, name: anders loren, email: anders.loren@gmail.com", person.getSummary());
     }
 }

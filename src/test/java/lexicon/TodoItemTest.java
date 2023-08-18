@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class TodoItemTest {
 
     @Test
-    @DisplayName("WHEN TodoItem object is instantiated, IF title is null, THEN should throw")
+    @DisplayName("The title of the TodoItemTest object should not be equal to null")
     public void todoitemThrowsIfTitleIsNull() {
         Person person = new Person(1, "Anders", "Loren", "anders.loren@gmail.com");
 
@@ -20,7 +20,7 @@ class TodoItemTest {
                 () -> new TodoItem(1, null, "description", LocalDate.now(), true, person));
     }
     @Test
-    @DisplayName("WHEN TodoItem object is instantiated, IF title is empty THEN should throw")
+    @DisplayName("The title of the TodoItem object should not be empty")
     public void todoitemThrowsIfTitleIsEmpty() {
         Person person = new Person(1, "Anders", "Loren", "anders.loren@gmail.com");
 
@@ -29,7 +29,7 @@ class TodoItemTest {
     }
 
     @Test
-    @DisplayName("WHEN TodoItem object is instantiated, IF deadline is null THEN should throw, ")
+    @DisplayName("The deadline of the TodoItem object should not be null")
     public void todoitemThrowsIfDeadlineIsNull() {
         Person person = new Person(1, "Anders", "Loren", "anders.loren@gmail.com");
 
