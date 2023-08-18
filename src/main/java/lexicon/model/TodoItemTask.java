@@ -1,8 +1,5 @@
 package lexicon.model;
 
-import lexicon.model.Person;
-import lexicon.model.TodoItem;
-
 import java.util.Objects;
 
 public class TodoItemTask {

@@ -1,7 +1,5 @@
 package lexicon.model;
 
-import lexicon.model.Person;
-
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Objects;
