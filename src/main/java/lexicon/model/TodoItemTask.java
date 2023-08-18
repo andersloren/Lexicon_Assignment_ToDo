@@ -3,6 +3,8 @@ package lexicon.model;
 import lexicon.model.Person;
 import lexicon.model.TodoItem;
 
+import java.util.Objects;
+
 public class TodoItemTask {
 
     // ******
@@ -31,29 +33,34 @@ public class TodoItemTask {
     // Methods
     // *******
 
-    public String getSummary() {
-        return "id: " + getId() +
-                ", is assigned: " + isAssigned()+
-                ", todo item: " + getTodoItem().getSummary();
-    }
-
     // ******************************************
     // Overridden methods from 'java.lang.Object'
     // ******************************************
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return Objects.hash(id, assigned, todoItem, assignee);
     }
 
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj);
+        if (this == obj ) {
+            return true;
+        }
+        if (obj == null || this.getClass() != obj.getClass()) {
+            return false;
+        }
+        TodoItemTask todoItemTask = (TodoItemTask) obj;
+        return Objects.equals(this.id, todoItemTask.id) &&
+                Objects.equals(this.assigned, todoItemTask.assigned) &&
+                Objects.equals(this.todoItem, todoItemTask.todoItem) &&
+                Objects.equals(this.assignee, todoItemTask.assignee);
     }
 
     @Override
     public String toString() {
-        return super.toString();
+        return "TodoItemTask { id: " + getId() +
+                ", todo item: " + getTodoItem().toString() + " }"; // Person object excluded
     }
 
     // *****************

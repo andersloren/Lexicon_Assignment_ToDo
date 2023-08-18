@@ -12,7 +12,6 @@ public class AppUser {
     private String password;
     private AppRole role;
 
-
     // **************
     // Constructor(s)
     // **************
@@ -58,11 +57,9 @@ public class AppUser {
         this.role = role;
     }
 
-
     // ******************************************
     // Overridden methods from 'java.lang.Object'
     // ******************************************
-
 
     @Override
     public int hashCode() {
@@ -71,11 +68,12 @@ public class AppUser {
 
     @Override
     public boolean equals(Object obj) { // check if the content of the two objects are the same
-        if (this == obj) return true; // IF memory addresses the same, THEN return true
+        if (this == obj) return true; // checks if the memory addresses are the  same
         if (obj == null || getClass() != obj.getClass()) return false; // IF the object being compared is null OR the classes for the objects are not the same, THEN return false
 
         AppUser appUser = (AppUser) obj; // casting 'obj' to the right class
-        return username.equals(appUser.username) && role == appUser.role; // IF username is the same AND role is the same, THEN return true
+        return Objects.equals(username, appUser.username) &&
+                (role == appUser.role); // checks if the fields are the same
     }
 
     @Override

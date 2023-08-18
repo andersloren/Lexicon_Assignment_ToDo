@@ -36,4 +36,12 @@ class TodoItemTest {
         assertThrows(IllegalArgumentException.class,
                 () -> new TodoItem(1, "title", "description", null, true, person));
     }
+
+    @Test
+    @DisplayName("When toString() is invoked on a TodoItem object it should be equal to the string provided in test")
+    public void todoItemReturnsInformationWhenToStringIsInvoked() {
+        Person anders = new Person(12, "Anders", "Loren", "anders.loren@gmail.com");
+        TodoItem todoItem = new TodoItem(4, "Buy groceries", "Check refrigerator, write a shopping list, and then go do the shopping!", LocalDate.of(2023, 8, 20), false, anders);
+        assertEquals("TodoItem { id: 4, title: Buy groceries, task description: Check refrigerator, write a shopping list, and then go do the shopping!, deadline: 2023-08-20, is overdue? false, done: false }", todoItem.toString());
+    }
 }

@@ -2,6 +2,7 @@ package lexicon;
 
 import lexicon.model.Person;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -22,13 +23,10 @@ class PersonTest {
                 () -> new Person(id, firstName, lastName, email));
     }
 
-    @ParameterizedTest
-    @DisplayName("When getSummary() is invoked on a Person object it should be equal to the string provided in test")
-    @CsvSource({
-            "1, anders, loren, anders.loren@gmail.com",
-    })
-    public void personGetSummaryShouldReturnCorrectString(int id, String firstName, String lastName, String email) {
-        Person person = new Person(id, firstName, lastName, email);
-        assertEquals("id: 1, name: anders loren, email: anders.loren@gmail.com", person.getSummary());
+    @Test
+    @DisplayName("When toString() is invoked on a Person object it should be equal to the string provided in test")
+    public void personGetSummaryShouldReturnCorrectString() {
+        Person person = new Person(12, "Anders", "Loren", "anders.loren@gmail.com");
+        assertEquals("Person { id: 12, name: anders loren, email: anders.loren@gmail.com }", person.toString());
     }
 }

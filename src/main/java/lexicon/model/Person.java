@@ -1,5 +1,9 @@
 package lexicon.model;
 
+import lexicon.AppUser;
+
+import java.util.Objects;
+
 public class Person {
 
     // ******
@@ -10,6 +14,7 @@ public class Person {
     private String firstName;
     private String lastName;
     private String email;
+    private AppUser credentials;
 
     // **************d
     // Constructor(s)
@@ -22,16 +27,10 @@ public class Person {
         setEmail(email);
     }
 
-
     // *******
     // Methods
     // *******
 
-    public String getSummary() {
-        return "id: " + getId() +
-                ", name: " + getFirstName() + " " + getLastName() +
-                ", email: " + getEmail();
-    }
 
     // ******************************************
     // Overridden methods from 'java.lang.Object'
@@ -39,19 +38,28 @@ public class Person {
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return Objects.hash(firstName, lastName, email);
     }
 
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj);
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || this.getClass() != obj.getClass()) {
+            return false;
+        }
+        Person person = (Person) obj;
+        return Objects.equals(this.firstName, person.getFirstName()) &&
+                Objects.equals(this.lastName, person.getLastName()) &&
+                Objects.equals(this.email, person.getEmail());
     }
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Person { id: " + getId() + ", name: " + getFirstName() + " " + getLastName() + // when called, prints out all fields except credentials
+                ", email: " + getEmail() + " }";
     }
-
 
     // *****************
     // Getters & Setters
@@ -86,5 +94,13 @@ public class Person {
     public void setEmail(String email) {
         if (email == null) throw new IllegalArgumentException("Email cannot be null");
         this.email = email;
+    }
+
+    public AppUser getCredentials() {
+        return credentials;
+    }
+
+    public void setCredentials(AppUser credentials) {
+        this.credentials = credentials;
     }
 }

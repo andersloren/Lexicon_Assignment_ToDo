@@ -4,6 +4,7 @@ import lexicon.model.Person;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public class TodoItem {
 
@@ -36,33 +37,40 @@ public class TodoItem {
     // Methods
     // *******
 
-    public String getSummary() {
-        return "id: " + getId() +
-                ", title: " + getTitle() +
-                ", task description: " + getTaskDescription() +
-                ", deadline: " + getDeadLine() +
-                ", is over due? " + isOverdue() +
-                ", done: " + isDone() +
-                ", creator: " + getCreator().getSummary();
-    }
-
     // ******************************************
     // Overridden methods from 'java.lang.Object'
     // ******************************************
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        return Objects.hash(id, title, taskDescription, deadLine, done, creator);
     }
 
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj);
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || this.getClass() != obj.getClass()) {
+            return false;
+        }
+        TodoItem todoItem = (TodoItem) obj;
+        return Objects.equals(this.id, todoItem.id) &&
+                Objects.equals(this.title, todoItem.title) &&
+                Objects.equals(this.taskDescription, todoItem.taskDescription ) &&
+                Objects.equals(this.deadLine, todoItem.deadLine) &&
+                Objects.equals(this.done, todoItem.done) &&
+                Objects.equals(this.creator, todoItem.creator);
     }
 
     @Override
     public String toString() {
-        return super.toString();
+        return "TodoItem { id: " + getId() +
+                ", title: " + getTitle() +
+                ", task description: " + getTaskDescription() +
+                ", deadline: " + getDeadLine() +
+                ", is overdue? " + isOverdue() +
+                ", done: " + isDone() + " }"; // Person object excluded
     }
 
     public boolean isOverdue() {
