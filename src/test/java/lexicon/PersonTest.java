@@ -26,7 +26,7 @@ class PersonTest {
     @Test
     @DisplayName("When toString() is invoked on a Person object it should be equal to the string provided in test")
     public void personGetSummaryShouldReturnCorrectString() {
-        Person person = new Person(12, "Anders", "Loren", "anders.loren@gmail.com");
+        Person person = new Person(12, "anders", "loren", "anders.loren@gmail.com");
         assertEquals("Person { id: 12, name: anders loren, email: anders.loren@gmail.com }", person.toString());
     }
 }
